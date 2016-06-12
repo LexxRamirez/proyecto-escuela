@@ -27,6 +27,7 @@
     <div id="contenedor-sup" style="width:900px; margin: auto;">
     <h3>FICHA DE MATRICULA</h3>
     <h5><label>Centro Escolar Canton "La Canoa". Codigo: 13072 Distrito: 12-05</label></h5>
+    <form>
     <table >
         <tr>
             <td width="200px">
@@ -83,14 +84,22 @@
             <td>
                 <label>Repite grado:</label>
             </td>
-            <td>
-                <input type="text" name="repite" size="12px" class="form-control">
+            <td style=" width:200px">
+               <select name="repite" class="form-control">
+                <option value="">Seleccione</option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+               </select> 
             </td>
             <td>
                 <label>Estudio parbularia:</label>
             </td>
-            <td>
-                <input type="text" name="parbularia" size="12px" class="form-control">
+            <td style=" width:200px">
+               <select name="parbularia" class="form-control">
+                <option value="">Seleccione</option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+               </select> 
             </td>
         <tr>
             <td>
@@ -138,13 +147,14 @@
             <td style=" width:200px">
                 <label>Lugar de residencia:</label>
             </td>
-            <td style=" width:100px">
-                <input type="checkbox" name="chek1" class="checkbox">
-                <label>Rural</label>
-                
+            <td style=" width:200px">
+               <select name="residencia" class="form-control">
+                <option value="">Seleccione</option>
+                <option value="rural">Rural</option>
+                <option value="urbana">Urbana</option>
+               </select> 
             </td>
-            <td colspan="2"><input type="checkbox" name="chek2" class="checkbox">
-                <label>Urbana</label></td>
+            
         </tr>
     </table>  
     <h5><label>Municipio en el que estudia actualmente: <u><i>San Miguel</i></u></label></h5>
@@ -170,14 +180,12 @@
             <td style=" width:200px">
                 <label>Tiene sobre edad:</label>
             </td>
-            <td style=" width:75px" colspan="2">
-                <input type="checkbox" name="cheque1">
-                <label>SI</label>
-                
-            </td>
-            <td>
-                <input type="checkbox" name="cheque2">
-                <label>NO</label>
+            <td style=" width:200px">
+               <select name="sobre_edad" class="form-control">
+                <option value="">Seleccione</option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+               </select> 
             </td>
         </tr>
     </table>
@@ -196,21 +204,15 @@
             <td width="200px">
                 <label>Vive con:</label>
             </td>
-            <td width="100px">
-                <input type="checkbox" name="vive1">
-                <label>Mamá</label>
-            </td>
-            <td width="100px">
-                <input type="checkbox" name="vive2">
-                <label>Papá</label>
-            </td>
-            <td width="150px">
-                <input type="checkbox" name="vive3">
-                <label>Papá y Mamá</label>
-            </td>
-            <td>
-                 <input type="checkbox" name="vive4">
-                <label>Familiar</label>
+           
+            <td style=" width:200px">
+               <select name="vive" class="form-control">
+                <option value="">Seleccione</option>
+                <option value="mama">Mamá</option>
+                <option value="papa">Papá</option>
+                <option value="papa y mama">Papá y mamá</option>
+                <option value="familiar">Familiar</option>
+               </select> 
             </td>
         </tr>
     </table>
@@ -229,13 +231,12 @@
             <td width="200px;">
                 <label>Vacunas completas:</label>
             </td>
-            <td width="75px;">
-                <input type="checkbox" name="cheque1">
-                <label>SI</label>
-            </td>
-            <td>
-                <input type="checkbox" name="cheque2">
-                <label>NO</label>
+            <td style=" width:200px">
+               <select name="vacunas" class="form-control">
+                <option value="">Seleccione</option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+               </select> 
             </td>
         </tr>
     </table>
@@ -284,13 +285,12 @@
                 <td width="200px">
                     <label>INGRESO FAMILIAR:</label>
                 </td>
-                <td width="100px">
-                    <input type="checkbox" name="ch1">
-                    <label>PADRE</label>
-                </td>
-                <td width="200px">
-                    <input type="checkbox" name="ch2">
-                    <label>MADRE</label>
+                <td style=" width:225px">
+                    <select name="ingreso" class="form-control">
+                        <option value="">Seleccione</option>
+                        <option value="padre">Padre</option>
+                        <option value="madre">Madre</option>
+                    </select> 
                 </td>
                 <td>
                     <label>OTROS:</label></td>
@@ -302,13 +302,12 @@
                 <td>
                     <label>VIVIENDA:</label>
                 </td>
-                <td>
-                    <input type="checkbox" name="ch1">
-                    <label>PROPIO</label>
-                </td>
-                <td>
-                    <input type="checkbox" name="ch2">
-                    <label>ALQUILADA</label>
+                <td style=" width:225px">
+                    <select name="vivienda" class="form-control">
+                        <option value="">Seleccione</option>
+                        <option value="propia">Propia</option>
+                        <option value="alquilada">Alquilada</option>
+                    </select> 
                 </td>
                 <td>
                     <label>TIPO DE VIVIENDA:</label></td>
@@ -325,24 +324,22 @@
                 <td width="200px">
                     <label>Embarazo:</label>
                 </td>
+                <td style=" width:225px">
+                    <select name="enbarazo" class="form-control">
+                        <option value="">Seleccione</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                    </select> 
+                </td>
                 <td width="100px">
-                    <input type="checkbox" name="ch1">
-                    <label>Normal</label>
-                </td>
-                <td width="200px">
-                    <input type="checkbox" name="ch1">
-                    <label>Anormal</label>
-                </td>
-                <td width="150px">
                     <label>Parto:</label>
                 </td>
-                <td width="100px">
-                    <input type="checkbox" name="ch1">
-                    <label>Normal</label>
-                </td>
-                <td>
-                    <input type="checkbox" name="ch1">
-                    <label>Anormal</label>
+                <td style=" width:225px">
+                    <select name="parto" class="form-control">
+                        <option value="">Seleccione</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Anormal">Anormal</option>
+                    </select> 
                 </td>
             </tr>
         </table>
@@ -367,13 +364,13 @@
                 <td width="200px">
                     <label>Sabe:</label>
                 </td>
-                <td width="100px">
-                    <input type="checkbox" name="ch1">
-                    <label>Leer</label>
-                </td>
-                <td>
-                    <input type="checkbox" name="ch1">
-                    <label>Escribir</label>
+                <td style=" width:225px">
+                    <select name="m_sabe" class="form-control">
+                        <option value="">Seleccione</option>
+                        <option value="leer">Leer</option>
+                        <option value="escribir">Escribir</option>
+                        <option value="leer y escribir">Leer y Escribir</option>
+                    </select> 
                 </td>
             </tr>
         </table>
@@ -398,13 +395,13 @@
                 <td width="200px">
                     <label>Sabe:</label>
                 </td>
-                <td width="100px">
-                    <input type="checkbox" name="ch1">
-                    <label>Leer</label>
-                </td>
-                <td>
-                    <input type="checkbox" name="ch1">
-                    <label>Escribir</label>
+                <td style=" width:225px">
+                    <select name="p_sabe" class="form-control">
+                        <option value="">Seleccione</option>
+                        <option value="leer">Leer</option>
+                        <option value="escribir">Escribir</option>
+                        <option value="leer y escribir">Leer y Escribir</option>
+                    </select> 
                 </td>
             </tr>
         </table>
@@ -479,6 +476,8 @@
             </td>
         </tr>
     </table>
+    <button class="btn btn-primary">Guardar</button>
+</form>
     </div>
     <br>
         </div>
