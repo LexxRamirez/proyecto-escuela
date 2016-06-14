@@ -209,9 +209,20 @@ if($_POST)
 		$nota2=$_POST[$val2];
 		$nota3=$_POST[$val3];
 		$promedio=$_POST[$val4];
-		$nota=$nota1."-".$nota2."-".$nota3;
-		$sql = mysql_query("INSERT INTO notas (id, periodo, id_materia, id_grado, id_docente, id_alumno, nota1, promedio) VALUES 
-		(NULL, '$_POST[periodo]', '$_POST[asignatura]', '$_POST[grado]', '1', '$rowa[0]', '$nota','$promedio')");
+		$nota=$nota1."-".$nota2."-".$nota3."-".$promedio;
+		if($_POST["periodo"] == "1")
+		{
+		$sql = mysql_query("INSERT INTO notas (id, id_materia, id_grado, id_docente, id_alumno, periodo1) VALUES 
+		(NULL, '$_POST[asignatura]', '$_POST[grado]', '1', '$rowa[0]', '$nota')");
+		}
+		else if($_POST["periodo"] == "2")
+		{
+		 $sql = mysql_query("UPDATE notas SET periodo2 = '$nota' WHERE id_alumno = '$rowa[0]' AND id_materia = '$_POST[asignatura]'");
+		}
+		else if($_POST["periodo"] == "3")
+		{
+		 $sql = mysql_query("UPDATE notas SET periodo3 = '$nota' WHERE id_alumno = '$rowa[0]' AND id_materia = '$_POST[asignatura]'");
+		}
 		if($sql)
 		{
 			$count = count+1;

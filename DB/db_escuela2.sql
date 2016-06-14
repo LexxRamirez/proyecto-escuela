@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-06-2016 a las 19:54:56
+-- Tiempo de generación: 12-06-2016 a las 22:14:32
 -- Versión del servidor: 5.5.49-0+deb8u1
 -- Versión de PHP: 5.6.20-0+deb8u1
 
@@ -167,39 +167,23 @@ INSERT INTO `materia` (`id_materia`, `materia`) VALUES
 
 CREATE TABLE IF NOT EXISTS `notas` (
 `id` int(11) NOT NULL,
-  `periodo` int(11) NOT NULL,
   `id_materia` int(11) NOT NULL,
   `id_grado` int(11) NOT NULL,
   `id_docente` int(11) NOT NULL,
   `id_alumno` int(11) NOT NULL,
-  `nota1` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
-  `promedio` varchar(10) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `periodo1` varchar(24) COLLATE utf8_spanish_ci NOT NULL,
+  `periodo2` varchar(24) COLLATE utf8_spanish_ci NOT NULL,
+  `periodo3` varchar(24) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `notas`
 --
 
-INSERT INTO `notas` (`id`, `periodo`, `id_materia`, `id_grado`, `id_docente`, `id_alumno`, `nota1`, `promedio`) VALUES
-(1, 1, 1, 2, 1, 1, '4.5,6.2', ''),
-(4, 1, 2, 1, 1, 1, '5-6-7', '6'),
-(5, 1, 2, 1, 1, 2, '10-10-10', '10'),
-(6, 0, 4, 1, 1, 1, '5-6-7', '6'),
-(7, 0, 4, 1, 1, 2, '9-8-7', '8'),
-(8, 0, 4, 1, 1, 3, '8-7-6', '7'),
-(9, 0, 4, 1, 1, 4, '4-10-10', '8'),
-(10, 0, 4, 1, 1, 5, '1-8-9', '6'),
-(11, 0, 4, 1, 1, 6, '3-2-10', '5'),
-(12, 0, 4, 1, 1, 7, '10-10-10', '10'),
-(13, 0, 4, 1, 1, 8, '9-9-9', '9'),
-(14, 1, 1, 1, 1, 1, '6-7-8', '2.50'),
-(15, 1, 1, 1, 1, 2, '--', ''),
-(16, 1, 1, 1, 1, 3, '--', ''),
-(17, 1, 1, 1, 1, 4, '--', ''),
-(18, 1, 1, 1, 1, 5, '--', ''),
-(19, 1, 1, 1, 1, 6, '--', ''),
-(20, 1, 1, 1, 1, 7, '--', ''),
-(21, 1, 1, 1, 1, 8, '--', '');
+INSERT INTO `notas` (`id`, `id_materia`, `id_grado`, `id_docente`, `id_alumno`, `periodo1`, `periodo2`, `periodo3`) VALUES
+(4, 2, 1, 1, 1, '5.66-6.34-7.12-10', '5.66-6.34-7.12-5.3', '5.66-6.34-7.12-4.5'),
+(22, 2, 1, 1, 4, '5.66-6.34-7.12-2.4', '9.0-10-9.82-1.2', '5.66-6.34-7.12-5.5'),
+(23, 2, 1, 1, 2, '5.66-6.34-7.12-4.4', '1.4-3.4-3.4-3.4', '5.66-6.34-7.12-4.6');
 
 --
 -- Índices para tablas volcadas
@@ -263,7 +247,7 @@ MODIFY `id_materia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT de la tabla `notas`
 --
 ALTER TABLE `notas`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- Restricciones para tablas volcadas
 --
