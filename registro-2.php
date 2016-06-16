@@ -1,3 +1,10 @@
+<?php
+include("conexion.php");
+if(isset($_GET["id"]))
+{
+$id=$_GET["id"];
+}
+?>
 <!DOCTYPE html>
 <html leng="utf-8">
 <head>
@@ -12,7 +19,7 @@
 <div id="mainwrap">	
     <div id="contenedor-sup" style="width:900px; margin: auto;">
     <h4 style="text-align:center">SITUACION SOCIOECONOMICA</h4>
-    <form>
+    <form method="POST">
         <table>
             <tr>
                 <td width="200px">
@@ -58,7 +65,7 @@
                     <label>Embarazo:</label>
                 </td>
                 <td style=" width:225px">
-                    <select name="enbarazo" class="form-control">
+                    <select name="embarazo" class="form-control">
                         <option value="">Seleccione</option>
                         <option value="Normal">Normal</option>
                         <option value="Anormal">Anormal</option>
@@ -113,13 +120,13 @@
                     <label>N. del padre:</label>
                 </td>
                 <td>
-                    <input type="text" name="nmadre" class="form-control" size="36px">
+                    <input type="text" name="npadre" class="form-control" size="36px">
                 </td>
                 <td>
                     <label>Edad:</label>
                 </td>
                 <td>
-                    <input type="text" name="Medad" class="form-control" size="37px">
+                    <input type="text" name="Pedad" class="form-control" size="37px">
                 </td>
             </tr>
         </table>
@@ -144,13 +151,13 @@
                     <label>N° de hermanos:</label>
                 </td>
                 <td>
-                    <input type="text" name="Pedad" size="36px" class="form-control">
+                    <input type="text" name="Nhnos" size="36px" class="form-control">
                 </td>
                 <td>
                     <label>N° de hermanas:</label>
                 </td>
                 <td>
-                    <input type="text" name="Pedad" size="37px" class="form-control">
+                    <input type="text" name="Nhnas" size="37px" class="form-control">
                 </td>
             </tr>
         </table>
@@ -162,27 +169,27 @@
                     <label>Inquieto</label>
                 </td>
                 <td width="100px">
-                    <input type="checkbox" name="ch1">
+                    <input type="checkbox" name="ch2">
                     <label>Timido</label>
                 </td>
                 <td width="120px">
-                    <input type="checkbox" name="ch1">
+                    <input type="checkbox" name="ch3">
                     <label>Cooperativo</label>
                 </td>
                 <td width="120px">
-                    <input type="checkbox" name="ch1">
+                    <input type="checkbox" name="ch4">
                     <label>Respetuoso</label>
                 </td>
                 <td width="120px">
-                    <input type="checkbox" name="ch1">
+                    <input type="checkbox" name="ch5">
                     <label>Responsable</label>
                 </td>
                 <td width="100px">
-                    <input type="checkbox" name="ch1">
+                    <input type="checkbox" name="ch6">
                     <label>Creativo</label>
                 </td>
                 <td width="100px">
-                    <input type="checkbox" name="ch1">
+                    <input type="checkbox" name="ch7">
                     <label>Ordenado</label>
                 </td>
             </tr>
@@ -192,19 +199,19 @@
     <table style="margin:auto">
         <tr>
             <td width="150px">
-                <input type="checkbox" name="ch1">
+                <input type="checkbox" name="c1">
                 <label>Copia de partida</label>  
             </td>
             <td width="200px">
-                <input type="checkbox" name="ch1">
+                <input type="checkbox" name="c2">
                 <label>Certificado Original</label>
             </td>
             <td width="100px">
-                <input type="checkbox" name="ch1">
+                <input type="checkbox" name="c3">
                 <label>DUI</label>
             </td>
             <td width="px">
-                <input type="checkbox" name="ch1">
+                <input type="checkbox" name="c4">
                 <label>Constancia de conducta</label>
             </td>
         </tr>
@@ -219,3 +226,68 @@
 </div>
 </body>
 </html>
+<?php
+if($_POST)
+{
+	$comp = "";
+	$doc = "";
+	if($_POST["ch1"] == "on")
+	{
+		$comp = $comp ."Inquieto ,";
+		}
+	if($_POST["ch2"] == "on")
+	{
+		$comp = $comp ."Timido ,";
+		}
+	if($_POST["ch3"] == "on")
+	{
+		$comp = $comp ."Cooperativo ,";
+		}
+	if($_POST["ch4"] == "on")
+	{
+		$comp = $comp ."Respetuoso ,";
+		}
+	if($_POST["ch5"] == "on")
+	{
+		$comp = $comp ."Responsable ,";
+		}	
+	if($_POST["ch6"] == "on")
+	{
+		$comp = $comp ."Creativo ,";
+		}
+	if($_POST["ch7"] == "on")
+	{
+		$comp = $comp ."Ordenado ,";
+		}
+		
+	$comp = $comp." Fin";	
+		
+	if($_POST["c1"] == "on")
+	{
+		$doc = $doc ."Copia de Partida ,";
+		}
+	if($_POST["c2"] == "on")
+	{
+		$doc = $doc ."Certificado Original ,";
+		}
+	if($_POST["c3"] == "on")
+	{
+		$doc = $doc ."DUI ,";
+		}
+	if($_POST["c4"] == "on")
+	{
+		$doc = $doc ."Constancia de Conducta ,";
+	}		
+	$doc = $doc." Fin";	
+		
+	$query=mysql_query("INSERT INTO situacion_economica(id_eco, ingreso, vivienda, embarazo, parto, Nmadre, edadM, sabeM, Npadre, 
+	edadP, Psabe, Nhermanos, Nhermanas, comportamiento, documentos) VALUES 
+	(null, '$_POST[ingreso]', '$_POST[vivienda]', '$_POST[embarazo]', '$_POST[parto]', '$_POST[nmadre]', '$_POST[Medad]',
+	'$_POST[m_sabe]', '$_POST[npadre]', '$_POST[Pedad]', '$_POST[p_sabe]', '$_POST[Nhnos]', '$_POST[Nhnas]', '$comp', '$doc')
+	");
+	if($query)
+	{
+		echo"<script>location.replace('replace.php?ac=u1&id=$id');</script>";
+		}
+	}
+?>

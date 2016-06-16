@@ -1,3 +1,13 @@
+<?php
+include("conexion.php");
+if(isset($_GET["nie"]))
+{
+	$nie = $_GET["nie"];
+	$i = mysql_fetch_array(mysql_query("SELECT * FROM alumnos WHERE nie = '$nie'"));
+	$id = $i[0];
+	}
+	echo $id;
+?>
 <!DOCTYPE html>
 <html leng="utf-8">
 <head>
@@ -13,7 +23,7 @@
     <div id="contenedor-sup" style="width:900px; margin: auto;">
 	<h5><label>Municipio en el que estudia actualmente: <u><i>San Miguel</i></u></label></h5>
     <h5><label>Codigo: 1217</label></h5>
-    <form>
+    <form method="POST">
     <table>	
         <tr>
             <td style=" width:200px">
@@ -27,7 +37,7 @@
                </select> 
             </td>
             <td>
-                <label>Estudio parbularia:</label>
+                <label>Estudio parvularia:</label>
             </td>
             <td style=" width:200px">
                <select name="parbularia" class="form-control">
@@ -149,3 +159,20 @@
 </div>
 </body>
 </html>
+<?php
+if($_POST)
+{
+	$query=mysql_query("INSERT INTO otros_datos(id_datos, repite, parbularia, sobredad, trabajo, vive, enfermedad, vacunas, 
+	encargado, dui, tel_casa, tel_cel) VALUES (null,'$_POST[repite]', '$_POST[parbularia]', '$_POST[sobre_edad]', '$_POST[trabajo]',
+	 '$_POST[vive]', '$_POST[enfermedad]', '$_POST[vacunas]', '$_POST[encargado]', '$_POST[dui]', '$_POST[Tcasa]', '$_POST[Tcel]') 
+	 ");
+	 if($query)
+	 {
+		echo"<script>location.replace('replace.php?ac=i&dui=$_POST[dui]&id=$id');</script>";
+	 }
+		 else
+		{
+			echo mysql_error();
+		 }
+}
+?>
