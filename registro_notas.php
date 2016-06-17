@@ -5,6 +5,8 @@ require("conexion.php");
 <html>
 <head>
 	<title>..::CE</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
 </head>
 <style>
 
@@ -95,10 +97,16 @@ function porc(porcentaje){
 	<table style="margin:auto;">
 		<tr>
 			<td>
+				<label>Periodo: </label>
+			</td>
+			<td>
+				<input name="periodo" type="number" onkeyup="porc(this.value)" step="any" class="form-control">
+			</td>
+			<td>
 				<label>Asignatura: </label>
 			</td>
 			<td>
-				<select name="asignatura">
+				<select name="asignatura" class="form-control">
 					<option value="">Seleccione</option>
 					<?php
 					$querys=mysql_query("SELECT * FROM materia");
@@ -113,7 +121,7 @@ function porc(porcentaje){
 				<label>Grado: </label>
 			</td>
 			<td>
-				<select name="grado" onchange="llenar(this.value)">
+				<select name="grado" onchange="llenar(this.value)" class="form-control">
 					<option value="">Seleccione</option>
 					<?php
 					$query=mysql_query("SELECT * FROM grado");
@@ -124,12 +132,6 @@ function porc(porcentaje){
 					?>
 				</select>
 			</td>
-			<td>
-				<label>Periodo: </label>
-			</td>
-			<td>
-				<input name="periodo" type="number" onkeyup="porc(this.value)" step="any">
-			</td>
 		</tr>
 	</table>
 	<table style="margin:auto;">
@@ -138,60 +140,15 @@ function porc(porcentaje){
 				<label>Profesor:</label>
 			</td>
 			<td>
-				<input name="docente" type="text">
+				<input name="docente" type="text" class="form-control">
 			</td>
 		</tr>
 	</table>
 	<br>
-<table style="border: 1px solid black; width:100%; text-align:center" border="1">
-		<tr>
-			<td rowspan="4" style="width:70px;">
-				No
-			</td>
-			<td rowspan="4" style="width:500px;">
-				<label>Nombre de los/las alumnos/as</label>
-			</td>
-			<td colspan="4" align="center">
-				<label>Actividad1 (35%)</label>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3" align="center">
-				<label>Actividad integradora</label>
-			</td>
-			<td rowspan="3" style="width:100px;">
-				<label>Total</label>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label>R1</label>
-			</td>
-			<td>
-				<label>R2</label>
-			</td>
-			<td>
-				<label>R3</label>
-			</td>
-		</tr>
-		<tr>
-			<td style="width:100px;">
-				<label>10%</label>
-			</td>
-			<td style="width:100px;">
-				<label>10%</label>
-			</td>
-			<td style="width:100px;">
-				<label>15%</label>
-			</td>
-		</tr>
-	</table>
-
 	</div>
 	<div id="notas" style="width:1024px; margin: auto;">
-		</div>
-		<button type='submit' >Enviar</button>
-		</form>
+	</div>
+	</form>
 </body>
 </html>
 <?php

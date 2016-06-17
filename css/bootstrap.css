@@ -2362,14 +2362,14 @@ table th[class*="col-"] {
 .table > thead > tr.success > th,
 .table > tbody > tr.success > th,
 .table > tfoot > tr.success > th {
-  background-color: #5DEFF5;
+  background-color: #2CB977;
 }
 .table-hover > tbody > tr > td.success:hover,
 .table-hover > tbody > tr > th.success:hover,
 .table-hover > tbody > tr.success:hover > td,
 .table-hover > tbody > tr:hover > .success,
 .table-hover > tbody > tr.success:hover > th {
-  background-color: #5DEFF5;
+  background-color: #2CB977 ;
 }
 .table > thead > tr > td.info,
 .table > tbody > tr > td.info,

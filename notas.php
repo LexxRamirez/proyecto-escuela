@@ -4,6 +4,8 @@ require("conexion.php");
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
 	<title>..::CE</title>
 	<script type="text/javascript">
 		function llenar()
@@ -58,7 +60,7 @@ require("conexion.php");
 				<label>Asignatura: </label>
 			</td>
 			<td>
-				<select name="asignatura" id="asignatura" onchange="llenar()">
+				<select name="asignatura" id="asignatura" onchange="llenar()" class="form-control">
 					<option value="">Seleccione</option>
 					<?php
 					$querys=mysql_query("SELECT * FROM materia");
@@ -73,7 +75,7 @@ require("conexion.php");
 				<label>Grado: </label>
 			</td>
 			<td>
-				<select name="grado" onchange="llenar()" id="grado">
+				<select name="grado" onchange="llenar()" id="grado" class="form-control">
 					<option value="">Seleccione</option>
 					<?php
 					$query=mysql_query("SELECT * FROM grado");
@@ -93,113 +95,14 @@ require("conexion.php");
 				<label>Profesor:</label>
 			</td>
 			<td>
-				<input name="docente" type="text">
+				<input name="docente" type="text" class="form-control">
 			</td>
 		</tr>
 	</table>
 	<br>
-	<table style="border: 1px solid black" border="1">
-		<tr>
-			<td rowspan="4" style="width: 25px;">
-				N°
-			</td>
-			<td rowspan="4" style="width: 284px;">
-				<label>Nombre de los/las alumnos/as</label>
-			</td>
-			<td colspan="4">
-				<label>Actividad1 (35%)</label>
-			</td>
-			<td colspan="4">
-				<label>Actividad2 (35%)</label>
-			</td>
-			<td colspan="4">
-				<label>Actividad3 (30%)</label>
-			</td>
-			<td colspan="1" rowspan="4" style="width: 55px;">
-				<label>Nota final</label>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3">
-				<label>Actividad integradora</label>
-			</td>
-			<td rowspan="3">
-				<label>Total</label>
-			</td>
-			<td colspan="3">
-				<label>Actividad Cotidiana</label>
-			</td>
-			<td rowspan="3">
-				<label>Total</label>
-			</td>
-			<td colspan="3">
-				<label>Actividad Examenes</label>
-			</td>
-			<td rowspan="3">
-				<label>Total</label>
-			</td>
-		</tr>
-		<tr>
-			<td style="width: 45px;">
-				<label>R1</label>
-			</td>
-			<td style="width: 45px;">
-				<label>R2</label>
-			</td>
-			<td style="width: 45px;">
-				<label>R3</label>
-			</td>
-			<td style="width: 45px;">
-				<label>R1</label>
-			</td>
-			<td style="width: 45px;">
-				<label>R2</label>
-			</td>
-			<td style="width: 45px;">
-				<label>R3</label>
-			</td>
-			<td style="width: 45px;">
-				<label>R1</label>
-			</td>
-			<td style="width: 45px;">
-				<label>R2</label>
-			</td>
-			<td style="width: 45px;">
-				<label>R3</label>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label>10%</label>
-			</td>
-			<td>
-				<label>10%</label>
-			</td>
-			<td>
-				<label>15%</label>
-			</td>
-			<td>
-				<label>10%</label>
-			</td>
-			<td>
-				<label>10%</label>
-			</td>
-			<td>
-				<label>15%</label>
-			</td>
-			<td>
-				<label>10%</label>
-			</td>
-			<td>
-				<label>10%</label>
-			</td>
-			<td>
-				<label>10%</label>
-			</td>
-		</tr>
-	</table>
 	</div>
 	<div id="nota_general" style="width:1024px; margin: auto;">
 		</div>
+		<br>
 </body>
 </html>

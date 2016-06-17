@@ -1,3 +1,8 @@
+<?php
+    require("conexion.php");
+    $id_eco = $_GET["id_eco"];
+    $dt = mysql_fetch_array(mysql_query("SELECT * FROM otros_datos WHERE id_datos = $id_eco"));
+?>
 <!DOCTYPE html>
 <html leng="utf-8">
 <head>
@@ -21,8 +26,8 @@
                 <td style=" width:225px">
                     <select name="ingreso" class="form-control">
                         <option value="">Seleccione</option>
-                        <option value="padre">Padre</option>
-                        <option value="madre">Madre</option>
+                        <option value="padre" <?php if($dt["ingreso"] == "padre"){ echo "selected";}?>>Padre</option>
+                        <option value="madre" <?php if($dt["ingreso"] == "madre"){ echo "selected";}?>>Madre</option>
                     </select> 
                 </td>
                 <td>
@@ -38,14 +43,14 @@
                 <td style=" width:225px">
                     <select name="vivienda" class="form-control">
                         <option value="">Seleccione</option>
-                        <option value="propia">Propia</option>
-                        <option value="alquilada">Alquilada</option>
+                        <option value="propia" <?php if($dt["vivienda"] == "propia"){ echo "selected";}?>>Propia</option>
+                        <option value="alquilada" <?php if($dt["vivienda"] == "alquilada"){ echo "selected";}?>>Alquilada</option>
                     </select> 
                 </td>
                 <td>
                     <label>TIPO DE VIVIENDA:</label></td>
                 <td>
-                    <input type="text" name="cheque2" class="form-control">
+                    <input type="text" name="vivienda" class="form-control" <?php echo "";?>>
                 </td>
             </tr>
         </table>
@@ -58,10 +63,10 @@
                     <label>Embarazo:</label>
                 </td>
                 <td style=" width:225px">
-                    <select name="enbarazo" class="form-control">
+                    <select name="embarazo" class="form-control">
                         <option value="">Seleccione</option>
-                        <option value="Normal">Normal</option>
-                        <option value="Anormal">Anormal</option>
+                        <option value="Normal" <?php if($dt["embarazo"] == "Normal"){ echo "selected";}?>>Normal</option>
+                        <option value="Anormal" <?php if($dt["embarazo"] == "Anormal"){ echo "selected";}?>>Anormal</option>
                     </select> 
                 </td>
                 <td width="100px">
@@ -70,8 +75,8 @@
                 <td style=" width:225px">
                     <select name="parto" class="form-control">
                         <option value="">Seleccione</option>
-                        <option value="Normal">Normal</option>
-                        <option value="Anormal">Anormal</option>
+                        <option value="Normal" <?php if($dt["parto"] == "Normal"){ echo "selected";}?>>Normal</option>
+                        <option value="Anormal" <?php if($dt["parto"] == "Anormal"){ echo "selected";}?>>Anormal</option>
                     </select> 
                 </td>
             </tr>
@@ -113,13 +118,13 @@
                     <label>N. del padre:</label>
                 </td>
                 <td>
-                    <input type="text" name="nmadre" class="form-control" size="36px">
+                    <input type="text" name="nmadre" class="form-control" size="36px" <?php echo "value ='$dt[Nmadre]'";?>>
                 </td>
                 <td>
                     <label>Edad:</label>
                 </td>
                 <td>
-                    <input type="text" name="Medad" class="form-control" size="37px">
+                    <input type="text" name="Medad" class="form-control" size="37px" <?php echo "value ='$dt[Medad]'";?>>
                 </td>
             </tr>
         </table>
@@ -144,7 +149,7 @@
                     <label>N° de hermanos:</label>
                 </td>
                 <td>
-                    <input type="text" name="Pedad" size="36px" class="form-control">
+                    <input type="text" name="Pedad" size="36px" class="form-control" <?php echo "value ='$dt[Nmadre]'";?>>
                 </td>
                 <td>
                     <label>N° de hermanas:</label>
