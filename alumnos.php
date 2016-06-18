@@ -9,6 +9,10 @@
 <link href="css/main.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+<link href="css/jquery-ui.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/bootstrap.js"></script>  
 
 </head>
 			<script>
@@ -29,6 +33,9 @@
 						{
 							location.replace("alumnos.php?action=elimin&id="+id);
 						}
+					}
+					else if(select == 3){
+						location.replace("libreta-notas.php?id="+id);
 					}
 				}
 			</script>

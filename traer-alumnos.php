@@ -29,12 +29,17 @@
 				<option value=''>Menu</option>
 				<option value='1' onclick='ver($row[0],1)'>Modificar</option>
 				<option value='2' onclick='ver($row[0],2)'>Eliminar</option>
+				<option value='3' onclick='ver($row[0],3)'>Ver notas</option>
 				</select>
 				</td> 
-			</tr>
+				<div id='detalles$row[0]' style='display:none;'>
+				<div style='width:150px; text-align:left; float:left;'>Id parametro</div><div style='width:250px; text-align:left; float:left; display:inline;'>$row[0]</div><br>
+            	<div style='width:150px; text-align:left; float:left;'>Descripcion</div><div style='width:250px; text-align:left; float:left; display:inline;'>$row[3]</div><br>
+            	<div style='width:150px; text-align:left; float:left;'>Codigo de barra</div><div style='width:250px; text-align:left; float:left; display:inline;'>$row[1]</div><br>
+				</div>
 		";
 
 	}
-	$compo = $compo."</table>";
+	$compo = $compo."</tr></table>";
 	echo $tabla;
 ?>
