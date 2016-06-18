@@ -23,15 +23,34 @@
         echo "<script> alert('Contraseña incorrecta'); </script>";
         }
       }
-
-      
+    else{
+    if($conteo > 0)
+    {
+      if($query[6] == $pass)
+      {
+      $_SESSION['admin']= ""; 
+      $_SESSION['usuario']=$usuario;
+      mysql_close($conn); 
+      header("Location:alumnos.php"); 
+	  die();
+    }
+	else
+	{ 
+	   echo "<script> alert('Contraseña Incorrecta'); </script>";}
+    }
+    else
+    {
+    echo "<script> alert('El usuario ingresado no existe o no tiene permiso de iniciar sesion'); </script>";
+    mysql_close($conn); 
+    }
+  }   
    }
 ?>
 <!DOCTYPE html>
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Clinica farmacia</title>
+    <title>Sitema de Notas</title>
         <link rel="stylesheet" href="css/log.css">
   </head>
   <body>
@@ -40,7 +59,7 @@
         <form method="POST">
         <h1 id="signup" style="background-color: #1172E2; background-position: initial initial; background-repeat: initial initial;">Login</h1>
         <input id="name" name="usuario" placeholder="Usuario" style="opacity: 5; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial;">
-        <input id="pass" type="password" placeholder="Contraseña" style="opacity: 5; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial;">
+        <input id="pass" type="password" name="pass" placeholder="Contraseña" style="opacity: 5; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial;">
         <button id="signupb">Entrar</button>
         </form>
     </div>

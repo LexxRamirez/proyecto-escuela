@@ -52,7 +52,7 @@ $id=$_GET["id"];
                 <td>
                     <label>TIPO DE VIVIENDA:</label></td>
                 <td>
-                    <input type="text" name="vivienda" class="form-control">
+                    <input type="text" name="vivi" class="form-control">
                 </td>
             </tr>
         </table>
@@ -233,15 +233,15 @@ if($_POST)
 	$doc = "";
 	if($_POST["ch1"] == "on")
 	{
-		$comp = $comp ."Inquieto ,";
+		$comp = $comp ." Inquieto ,";
 		}
 	if($_POST["ch2"] == "on")
 	{
-		$comp = $comp ."Timido ,";
+		$comp = $comp ." Timido ,";
 		}
 	if($_POST["ch3"] == "on")
 	{
-		$comp = $comp ."Cooperativo ,";
+		$comp = $comp ." Cooperativo ,";
 		}
 	if($_POST["ch4"] == "on")
 	{
@@ -249,34 +249,34 @@ if($_POST)
 		}
 	if($_POST["ch5"] == "on")
 	{
-		$comp = $comp ."Responsable ,";
+		$comp = $comp ." Responsable ,";
 		}	
 	if($_POST["ch6"] == "on")
 	{
-		$comp = $comp ."Creativo ,";
+		$comp = $comp ." Creativo ,";
 		}
 	if($_POST["ch7"] == "on")
 	{
-		$comp = $comp ."Ordenado ,";
+		$comp = $comp ." Ordenado ,";
 		}
 		
 	$comp = $comp." Fin";	
 		
 	if($_POST["c1"] == "on")
 	{
-		$doc = $doc ."Copia de Partida ,";
+		$doc = $doc ." Copia de Partida ,";
 		}
 	if($_POST["c2"] == "on")
 	{
-		$doc = $doc ."Certificado Original ,";
+		$doc = $doc ." Certificado Original ,";
 		}
 	if($_POST["c3"] == "on")
 	{
-		$doc = $doc ."DUI ,";
+		$doc = $doc ." DUI ,";
 		}
 	if($_POST["c4"] == "on")
 	{
-		$doc = $doc ."Constancia de Conducta ,";
+		$doc = $doc ." Constancia de Conducta ,";
 	}		
 	$doc = $doc." Fin";	
 		
