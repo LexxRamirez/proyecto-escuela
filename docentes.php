@@ -1,10 +1,15 @@
 <?php
+	include("sesion.php");
 	include ("conexion.php");
 	include("part-prin-boost.php");
 	
 ?>
 <div>
 	<h4 align="center">Docentes o usuarios</h4>
+	<form action="report-docentes-viw.php" target="_blank">
+		<button type="submit" class="btn btn-primary" style="float: right">Generar reporte</button>
+	</form>
+	<br><br>
 </div>
 <?php
 	$tab = "

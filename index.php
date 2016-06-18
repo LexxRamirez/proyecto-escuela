@@ -15,7 +15,7 @@
           $_SESSION['admin']= "si";
           $_SESSION['usuario'] =$user;
           //mysql_close($close);
-          header("Location:alumnos.php");
+          header("Location:docentes.php");
           die();
         }
         else

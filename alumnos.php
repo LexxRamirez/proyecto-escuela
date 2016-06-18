@@ -1,4 +1,5 @@
 <?php
+	include("sesion.php");
     include("conexion.php");
 ?>
 <!DOCTYPE html>
@@ -69,24 +70,29 @@
 				}
 			</script>
 <body>
-<div>
-	<table>
-		<tr>
-			<td>
-				<select name="grado" onchange="alumnos(this.value)" class="form-control">
-					<option value="">Seleccione</option>
-					<?php
-					$query=mysql_query("SELECT * FROM grado");
-					while($row=mysql_fetch_array($query))
-					{
-						echo "<option value='".$row[0]."'>".$row[1]."</option> ";
-						}
-					?>
-				</select>
-			</td>
-		</tr>
-	</table>
-</div>
+	<div id="log" style="width:1024px; height:75px; margin: auto; background-color: #B9C9FE">
+		<a href="logut.php" style="float:right; color:#000; padding:20px; font-size:17px;"><?php echo $_SESSION["usuario"];?>(Exit)</a>
+	</div>
+	<h2 align="center"><label>Lista de alumnos</label></h2>
+	<br>
+	<div id="alum" style="width:1024px; margin: auto;">
+		<table align="center">
+			<tr>
+				<td>
+					<select name="grado" onchange="alumnos(this.value)" class="form-control">
+						<option value="">Seleccione</option>
+						<?php
+						$query=mysql_query("SELECT * FROM grado");
+						while($row=mysql_fetch_array($query))
+						{
+							echo "<option value='".$row[0]."'>".$row[1]."</option> ";
+							}
+						?>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</div>
 <div id="lista" style="width:1024px; margin: auto;">
 	</div>
 </body>
