@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-06-2016 a las 16:59:30
+-- Tiempo de generación: 17-06-2016 a las 20:07:59
 -- Versión del servidor: 5.5.49-0+deb8u1
 -- Versión de PHP: 5.6.20-0+deb8u1
 
@@ -30,10 +30,7 @@ USE `db_escuela`;
 
 CREATE TABLE IF NOT EXISTS `alumnos` (
 `id_alumno` int(11) NOT NULL,
-  `id_datos` int(11) NOT NULL,
-  `id_eco` int(11) NOT NULL,
   `anho` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
-  `id_grado` int(11) NOT NULL,
   `matricula` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
   `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `nie` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
@@ -44,22 +41,21 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
   `estudio_especial` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `recidencia` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
   `fecha_nacimiento` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `edad` varchar(15) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `edad` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `id_grado` int(11) NOT NULL,
+  `id_datos` int(11) DEFAULT NULL,
+  `id_eco` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `alumnos`
 --
 
-INSERT INTO `alumnos` (`id_alumno`, `id_datos`, `id_eco`, `anho`, `id_grado`, `matricula`, `nombre`, `nie`, `anho_ultimo_grado`, `minicipio_ultimo_grado`, `codigo`, `discapacidad`, `estudio_especial`, `recidencia`, `fecha_nacimiento`, `edad`) VALUES
-(1, 1, 1, '', 1, '', 'Juanito', '', '', '', '', '', '', '', '', ''),
-(2, 2, 2, '', 1, '', 'Pedrito', '', '', '', '', '', '', '', '', ''),
-(3, 3, 3, '', 1, '', 'Jose Jose Romero', '', '', '', '', '', '', '', '', ''),
-(4, 4, 4, '', 1, '', 'Juan Prez Rodriges', '', '', '', '', '', '', '', '', ''),
-(5, 5, 5, '', 1, '', 'Jose Miguel Martinez', '', '', '', '', '', '', '', '', ''),
-(6, 6, 6, '', 1, '', 'Maria de los Angeles Ayala', '', '', '', '', '', '', '', '', ''),
-(7, 7, 7, '', 1, '', 'Ramon Jose Valdes', '', '', '', '', '', '', '', '', ''),
-(8, 8, 8, '', 1, '', 'Jose Perez Leon', '', '', '', '', '', '', '', '', '');
+INSERT INTO `alumnos` (`id_alumno`, `anho`, `matricula`, `nombre`, `nie`, `anho_ultimo_grado`, `minicipio_ultimo_grado`, `codigo`, `discapacidad`, `estudio_especial`, `recidencia`, `fecha_nacimiento`, `edad`, `id_grado`, `id_datos`, `id_eco`) VALUES
+(2, '2016', '1234-34', 'Marcela Perez', '5678', '2015', 'San Michel', '1217', 'nell', 'lol', 'urbana', '23/12/2015', '45', 6, 2, 2),
+(3, '', '', 'Jose Jose Romero', '', '', '', '', '', '', '', '', '', 1, 3, 3),
+(4, '', '', 'Juan Prez Rodriges', '', '', '', '', '', '', '', '', '', 1, 4, 4),
+(5, '', '', 'Jose Miguel Martinez', '', '', '', '', '', '', '', '', '', 1, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -70,19 +66,23 @@ INSERT INTO `alumnos` (`id_alumno`, `id_datos`, `id_eco`, `anho`, `id_grado`, `m
 CREATE TABLE IF NOT EXISTS `docentes` (
 `id_docente` int(11) NOT NULL,
   `nombre` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
+  `usuario` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `direccion` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
   `dui` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `grado` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
-  `clave` varchar(20) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `clave` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `id_grado` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `docentes`
 --
 
-INSERT INTO `docentes` (`id_docente`, `nombre`, `direccion`, `telefono`, `dui`, `grado`, `clave`) VALUES
-(1, 'Guss', 'Kame House', '77454545', '1234567890', '8', '123456');
+INSERT INTO `docentes` (`id_docente`, `nombre`, `usuario`, `direccion`, `telefono`, `dui`, `clave`, `id_grado`) VALUES
+(1, 'Marlon Garcias', 'Gusz', 'Kame House', '77454545', '1234567890', '123456', 1),
+(2, 'Romes Gomes', 'Romero', 'Wuano', '73246798', '277438380', '1234567', 2),
+(3, 'Mario Lopez', 'Mario', 'Rook Bat', '73475898', '747392834', '2121', 3),
+(7, 'Marcos Garcias', 'Marcos', 'Rook Bat', '74753285', '94758693', '12345678', 4);
 
 -- --------------------------------------------------------
 
@@ -149,33 +149,25 @@ CREATE TABLE IF NOT EXISTS `notas` (
   `periodo1` varchar(24) COLLATE utf8_spanish_ci NOT NULL,
   `periodo2` varchar(24) COLLATE utf8_spanish_ci NOT NULL,
   `periodo3` varchar(24) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `notas`
 --
 
 INSERT INTO `notas` (`id`, `id_materia`, `id_grado`, `id_docente`, `id_alumno`, `periodo1`, `periodo2`, `periodo3`) VALUES
-(1, 2, 1, 1, 1, '5.66-6.34-7.12-10', '5.66-6.34-7.12-5.3', '5.66-6.34-7.12-4.5'),
 (2, 2, 1, 1, 4, '5.66-6.34-7.12-2.4', '9.0-10-9.82-1.2', '5.66-6.34-7.12-5.5'),
 (3, 2, 1, 1, 2, '5.66-6.34-7.12-4.4', '1.4-3.4-3.4-3.4', '5.66-6.34-7.12-4.6'),
 (24, 5, 1, 1, 5, '9-9-9-9', '9-9-9-9', '9-9-9-9'),
-(25, 3, 1, 1, 1, '7-7-7-2.45', '2-2-1-0.55', '7-7-7-2.10'),
 (26, 3, 1, 1, 2, '7-7-8-2.60', '4-4-3-1.25', '8-8-8-2.40'),
 (27, 3, 1, 1, 3, '8-8-7-2.65', '8-7-5-2.25', '10-10-10-3.00'),
 (28, 3, 1, 1, 4, '7-5-4-1.80', '5-8-5-2.05', '8-8-8-2.40'),
 (29, 3, 1, 1, 5, '4-4-5-1.55', '8-6-8-2.60', '9-9-9-2.70'),
-(30, 3, 1, 1, 6, '5-4-9-2.25', '3-2-2-0.80', '9-8-9-2.60'),
-(31, 3, 1, 1, 7, '8-6-8-2.60', '2-5-2-1.00', '10-0-1-1.10'),
-(32, 3, 1, 1, 8, '7-8-8-2.70', '3-3-4-1.20', '5-6-9-2.00'),
-(33, 1, 1, 1, 1, '10-10-10-3.50', '', ''),
 (34, 1, 1, 1, 2, '9-9-9-3.15', '', ''),
 (35, 1, 1, 1, 3, '8-8-8-2.80', '', ''),
 (36, 1, 1, 1, 4, '7-7-7-2.45', '', ''),
 (37, 1, 1, 1, 5, '6-6-6-2.10', '', ''),
-(38, 1, 1, 1, 6, '10-9-8-3.10', '', ''),
-(39, 1, 1, 1, 7, '7-6-10-2.80', '', ''),
-(40, 1, 1, 1, 8, '9-8-7-2.75', '', '');
+(41, 1, 6, 1, 2, '10-7-8-2.90', '', '');
 
 -- --------------------------------------------------------
 
@@ -196,21 +188,18 @@ CREATE TABLE IF NOT EXISTS `otros_datos` (
   `dui` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `tel_casa` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
   `tel_cel` varchar(15) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `otros_datos`
 --
 
 INSERT INTO `otros_datos` (`id_datos`, `repite`, `parbularia`, `sobredad`, `trabajo`, `vive`, `enfermedad`, `vacunas`, `encargado`, `dui`, `tel_casa`, `tel_cel`) VALUES
-(1, '', '', '', '', '', '', '', '', '', '', ''),
-(2, '', '', '', '', '', '', '', '', '', '', ''),
-(3, '', '', '', '', '', '', '', '', '', '', ''),
-(4, '', '', '', '', '', '', '', '', '', '', ''),
-(5, '', '', '', '', '', '', '', '', '', '', ''),
-(6, '', '', '', '', '', '', '', '', '', '', ''),
-(7, '', '', '', '', '', '', '', '', '', '', ''),
-(8, '', '', '', '', '', '', '', '', '', '', '');
+(1, 'si', 'no', ' si', 'limpia botas', 'mama', 'ninguna', 'no', 'Jose Marvin', '09098987', '2345345', '345356'),
+(2, 'si', 'no', ' si', 'limpia botas', 'mama', 'ninguna', 'no', 'Jose Marvin', '09098987', '2345345', '345356'),
+(3, 'si', 'no', ' si', 'limpia botas', 'mama', 'ninguna', 'no', 'Jose Marvin', '09098987', '2345345', '345356'),
+(4, 'si', 'no', ' si', 'limpia botas', 'mama', 'ninguna', 'no', 'Jose Marvin', '09098987', '2345345', '345356'),
+(5, 'si', 'no', ' si', 'limpia botas', 'mama', 'ninguna', 'no', 'Jose Marvin', '09098987', '2345345', '345356');
 
 -- --------------------------------------------------------
 
@@ -234,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `situacion_economica` (
   `Nhermanas` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `comportamiento` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `documentos` varchar(50) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `situacion_economica`
@@ -245,10 +234,7 @@ INSERT INTO `situacion_economica` (`id_eco`, `ingreso`, `vivienda`, `embarazo`, 
 (2, '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (3, '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (4, '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(5, '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(6, '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(7, '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(8, '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(5, '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 --
 -- Índices para tablas volcadas
@@ -264,7 +250,7 @@ ALTER TABLE `alumnos`
 -- Indices de la tabla `docentes`
 --
 ALTER TABLE `docentes`
- ADD PRIMARY KEY (`id_docente`);
+ ADD PRIMARY KEY (`id_docente`), ADD KEY `id_grado` (`id_grado`);
 
 --
 -- Indices de la tabla `grado`
@@ -304,12 +290,12 @@ ALTER TABLE `situacion_economica`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `docentes`
 --
 ALTER TABLE `docentes`
-MODIFY `id_docente` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_docente` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `grado`
 --
@@ -324,17 +310,17 @@ MODIFY `id_materia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT de la tabla `notas`
 --
 ALTER TABLE `notas`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT de la tabla `otros_datos`
 --
 ALTER TABLE `otros_datos`
-MODIFY `id_datos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `id_datos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `situacion_economica`
 --
 ALTER TABLE `situacion_economica`
-MODIFY `id_eco` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `id_eco` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- Restricciones para tablas volcadas
 --

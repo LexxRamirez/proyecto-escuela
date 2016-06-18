@@ -1,13 +1,7 @@
 <?php
 require("conexion.php");
+include("part-prin-boost.php");
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>..::CE</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
-</head>
 <style>
 
 	input[type=number]::-webkit-outer-spin-button,
@@ -90,7 +84,6 @@ function porc(porcentaje){
 			}
 	}
 </script>
-<body>
 	<form method="POST">
 	<div id="contenedor" style="width:1024px; margin: auto;">
 	<h3 style="text-align:center;"><label>Cuadro de registro de evaluaciones de los aprendizajes por trimestre</label></h3>

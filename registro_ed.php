@@ -1,18 +1,9 @@
 <?php
     require("conexion.php");
+    include("part-prin-boost.php");
     $id = $_GET["id"];
     $dt = mysql_fetch_array(mysql_query("SELECT * FROM alumnos WHERE id_alumno = $id"));
 ?>
-<!DOCTYPE html>
-<html leng="utf-8">
-<head>
-<title>..::CE</title>
-
-<link href="css/main.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
-</head>
-<body>
 <div id="mainwrap">	
     <div id="contenedor-sup" style="width:900px; margin: auto;">
     <h3>FICHA DE MATRICULA</h3>

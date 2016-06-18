@@ -11,7 +11,7 @@
 			<td rowspan=\"1\" style=\"width:500px;\">
 				<label>Nombre de los/las alumnos/as</label>
 			</td>
-			<td colspan=\"1\" align=\"center\">
+			<td colspan=\"1\" align=\"center\" style=\"width:200px;\">
 				<label>Aciones</label>
 			</td>
 		</tr>

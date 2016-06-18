@@ -1,26 +1,28 @@
 <?php
-include ("conexion.php");
-?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>..::CE</title>
-    <link rel="stylesheet" type="text/css" href="css/materialize.css">
-    <script src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script> 
-    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>         --> 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>  
-    <script>
-         $(document).ready(function() {
-         $('select').material_select();
-      });
-    </script>
-  </head>
-  <body>
+    include ("conexion.php");
+    include ("part-principal-ma.php");  
+  ?>
+
+    <?php
+        if($_POST){
+          $nombre=$_POST["nombre"];
+          $user=$_POST["user"];
+          $direc=$_POST["direccion"];
+          $tel=$_POST["telefono"];
+          $dui=$_POST["dui"];
+          $grado=$_POST["grado"];
+          $pass=$_POST["password"];
+          $query = mysql_query("INSERT INTO docentes (id_docente, nombre, usuario, direccion, telefono, dui, clave, id_grado) 
+            VALUES(NULL,'$nombre','$user','$direc','$tel','$dui','$pass','$grado')");
+
+          echo "<script>alert('Datos ingresados')</script>";
+          echo "<script>location.href='docentes.php';</script>";
+        }else{
+            echo mysql_error();
+        }
+    ?>
     <div style="width:500px; margin:auto">
-    <form align="center" class="col s12">
+    <form align="center" class="col s12" method="POST">
       <h3 align="center">Registro de Docente</h3>
       <br>
      <div class="row">
@@ -42,7 +44,7 @@ include ("conexion.php");
       </div>
       <div class="row">
                <label>Grado:</label>
-               <select>
+               <select name="grado" id="grado">
                   <option value="" disabled selected>Seleccione</option>
                   <?php
                     $query=mysql_query("SELECT * FROM grado");
@@ -53,12 +55,17 @@ include ("conexion.php");
                     ?>
                </select>               
             </div>
-       <div class="row">
-      <div class="input-field col s12">
-        <input name="password"type="password" type="text" class="validate"> 
+      <div class="input-field col s6">
+        <input name="user" id="user" type="text" class="validate"> 
+        <label for="first_name2">Usuario:</label> 
+      </div>
+      <div class="row">
+      <div class="input-field col s6">
+        <input name="password" type="password" type="text" class="validate"> 
         <label class="active" for="password">Contraseña:</label> 
       </div>
       </div>
+        <button class="waves-effect waves-light btn">Guardar</button>
       </div>
     </form>
     </div>
