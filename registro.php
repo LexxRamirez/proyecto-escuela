@@ -15,7 +15,7 @@
     <div id="contenedor-sup" style="width:900px; margin: auto;">
     <h3>FICHA DE MATRICULA</h3>
     <h5><label>Centro Escolar Canton "La Canoa". Codigo: 13072 Distrito: 12-05</label></h5>
-    <form>
+    <form method="POST">
     <table >
         <tr>
             <td width="200px">
@@ -110,7 +110,7 @@
                 <label >Municipio en el que esudio el ultimo año:</label>
             </td>
             <td>
-                <input type="text" name="Muniultimo" class="form-control" size="40px">
+                <input type="text" name="muniultimo" class="form-control" size="40px">
             </td>
             <td>
                 <label>Codigo:</label>
@@ -136,7 +136,7 @@
         <tr><td><br></td></tr>
         
     </table>
-    <button class="btn btn-primary">Guardar</button>
+    <button class="btn btn-primary">Siguiente</button>
 </form>
     </div>
     <br>
@@ -145,3 +145,22 @@
 </div>
 </body>
 </html>
+<?php
+include("conexion.php");
+if($_POST)
+{
+	$query = mysql_query("INSERT INTO alumnos(id_alumno, anho, matricula, nombre, nie, anho_ultimo_grado, minicipio_ultimo_grado, 
+	codigo, discapacidad, estudio_especial, recidencia, fecha_nacimiento, edad, id_grado, id_datos, id_eco) VALUES
+	 (null,'$_POST[anho]', '$_POST[matriculaN]', '$_POST[nombre]', '$_POST[nie]', '$_POST[ultimo]', '$_POST[muniultimo]',
+	 '$_POST[codigo]', '$_POST[discapacidad]', '$_POST[eduEspecial]', '$_POST[residencia]', '$_POST[fecha]', '$_POST[edad]', '$_POST[grado]',null,null) 
+	 ");
+	 if($query)
+	 {
+		 echo"<script>location.replace('registro-1.php?nie=$_POST[nie]');</script>";
+		 }
+		 else
+		{
+			echo mysql_error();
+		 }
+}
+?>
