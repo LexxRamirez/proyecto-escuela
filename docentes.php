@@ -5,15 +5,30 @@
 	
 ?>
 <div>
-	<h4 align="center">Docentes o usuarios</h4>
-	<form action="report-docentes-viw.php" target="_blank">
-		<button type="submit" class="btn btn-primary" style="float: right">Generar reporte</button>
-	</form>
-	<br><br>
+	<h3 align="center">Docentes o usuarios</h3>
+	<div style="float:right; width:300px; margin: auto">
+	
+	</div>
+	
 </div>
 <?php
 	$tab = "
 	<div id=\"docentes\" style=\"width:1024px; margin: auto;\">
+	<table style=\"float:right\">
+		<tr>
+			<td>
+				<form action=\"add-docente.php\">
+					<button type=\"submit\" class=\"btn btn-primary\" style=\"float: right\">Agregar nuevo</button>
+				</form>
+			</td>
+			<td>
+				<form action=\"report-docentes-viw.php\" target=\"_blank\">
+					<button type=\"submit\" class=\"btn btn-primary\" style=\"float: right\">Generar reporte</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+	<br><br>
 	<table table style='width:100%; text-align:center;' class=\"table table-hover table-bordered\">
 		<tr class=\"success\">
 			<td>ID</td>

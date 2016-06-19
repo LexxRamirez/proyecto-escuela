@@ -89,16 +89,6 @@ require("conexion.php");
 			
 		</tr>
 	</table>
-	<table style="margin:auto;">
-		<tr>
-			<td>
-				<label>Profesor:</label>
-			</td>
-			<td>
-				<input name="docente" type="text" class="form-control">
-			</td>
-		</tr>
-	</table>
 	<br>
 	</div>
 	<div id="nota_general" style="width:1024px; margin: auto;">

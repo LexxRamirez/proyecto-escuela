@@ -2,7 +2,23 @@
 	include("conexion.php");
 
 	$lista = $_GET["q"];
-	$tabla ="<table style='width:100%; text-align:center;' class=\"table table-hover table-bordered\">
+	$tabla ="
+	<table style=\"float:right\">
+		<tr>
+			<td>
+				<form action=\"registro.php\">
+					<button type=\"submit\" class=\"btn btn-primary\" style=\"float: right\">Agregar nuevo</button>
+				</form>
+			</td>
+			<td>
+				<form action=\"report-alumnos-viw.php\" target=\"_blank\">
+					<button type=\"submit\" class=\"btn btn-primary\" style=\"float: right\">Generar reporte</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+	<br><br>
+	<table style='width:100%; text-align:center;' class=\"table table-hover table-bordered\">
 		<thead >
 		<tr class=\"success\">
 			<td rowspan=\"1\" style=\"width:70px;\">

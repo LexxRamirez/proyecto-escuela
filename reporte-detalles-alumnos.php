@@ -21,7 +21,7 @@
         
         <table class="page_header" >
             <tr>
-                <td style="width: 20%; color: #444444;">
+                <td style="width: 30%; color: #444444;">
                     <h2><label>Centro Escolar La Canoa</label></h2>
                 </td>
             
@@ -42,7 +42,7 @@
     <table cellspacing="0" style="width: 90%; text-align: left;font-size: 14pt; font-family:Times,serif;">
         <tr>
             
-            <td align=center style="width:100%; ">LISTA DE DOCENTES</td>
+            <td align=center style="width:100%; ">LISTA DE ALUMNOS</td>
             </tr>
             <tr>
             <td align=center style="width:100%; ">FECHA DE IMPRESION: <?php echo date("d-m-Y H:i:s");?></td>
@@ -51,17 +51,14 @@
      <br>
     <table align="center" cellspacing="1" style="width: 100%; border: solid 1px black; background: #A9A9A9; text-align: center; font-size: 11pt; color:#FFFFFF; font-family:helvetica,serif;">
         <tr>
-            <th style="width: 5%">N°</th>
-            <th style="width: 25%">Nombre</th>
-            <th style="width: 25%">Usuario</th>   
-            <th style="width: 25%">Telefono</th>          
-            <th style="width: 25%">Direccion</th>
+            <th style="width: 20%">N°</th>
+            <th style="width: 50%">Nombre</th>
         </tr>
     </table>
 
     <?php
         include('conexion.php');
-        $query=mysql_query("SELECT * FROM docentes ORDER BY id_docente");
+        $query=mysql_query("SELECT * FROM alumnos ORDER BY id_alumno");
         $i=1;
         while($row = mysql_fetch_array($query))
         {
@@ -70,11 +67,9 @@
     <table border="0.5px" align="center" cellspacing="0"  style="width: 100%; border:none; text-align: center; font-size: 11pt; color:#000; font-family:helvetica,serif;">
     
         <tr>
-            <td style="width:5%"><?php echo $i;?></td>
-            <td style="width:25%"><?php echo utf8_decode($row['nombre']); ?></td>
-            <td style="width:25%"><?php echo utf8_decode($row['usuario']); ?></td> 
-            <td style="width:25%"><?php echo utf8_decode($row['telefono']); ?></td>
-            <td style="width:25%"><?php echo utf8_decode($row['direccion']); ?></td>  
+            <td style="width:20%"><?php echo $i;?></td>
+            <td style="width:50%"><?php echo utf8_decode($row['nombre']); ?></td>
+            
         </tr>
     </table>
     <?php

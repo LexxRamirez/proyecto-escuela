@@ -1,4 +1,5 @@
 <?php
+    include ("sesion.php");
     include ("conexion.php");
     include ("part-principal-ma.php");  
   ?>

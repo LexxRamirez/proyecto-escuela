@@ -93,6 +93,7 @@
 			</tr>
 		</table>
 	</div>
+	<br>
 <div id="lista" style="width:1024px; margin: auto;">
 	</div>
 </body>
